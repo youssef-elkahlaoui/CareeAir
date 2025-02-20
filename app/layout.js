@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
 import { join } from "@prisma/client/runtime/library";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-
+import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -35,6 +35,7 @@ export default function RootLayout({ children }) {
           >
             <Header />
             <main className="min-h-screen">{children}
+            <Analytics />
             <SpeedInsights />
             </main>
             <Toaster richColors />
