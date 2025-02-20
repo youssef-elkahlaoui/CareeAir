@@ -9,6 +9,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import HeroSection from "@/components/hero";
 import {
   Accordion,
