@@ -30,7 +30,7 @@ const HeroSection = () => {
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">
         <div className="space-y-6 mx-auto">
-          <h1 className="text-6xl text-bold tracking-tighter md:text-6xl lg:text-7xl xl:text-8xl animate-gradient font-display">
+          <h1 className="text-6xl text-bold tracking-tighter md:text-6xl lg:text-7xl xl:text-8xl animate-gradient gradient-title font-display">
             Your AI Powered Tool for
             <br />
             <TypeAnimation
