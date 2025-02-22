@@ -54,10 +54,13 @@ export default async function Header() {
             {/* Growth Tools Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="custom" className="flex items-center gap-2">
-                  <StarsIcon className="h-4 w-4" />
-                  <span className="hidden md:block "> Tools</span>
-                  <ChevronDown className="h-4 w-4" />
+                <Button
+                  variant="custom"
+                  className="border-black flex items-center gap-2"
+                >
+                  <StarsIcon className="h-4 w-4 text-black" />
+                  <span className="text-black hidden md:block "> Tools</span>
+                  <ChevronDown className="h-4 w-4 text-black" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">

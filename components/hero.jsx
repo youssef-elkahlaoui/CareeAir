@@ -35,17 +35,17 @@ const HeroSection = () => {
             <br />
             <TypeAnimation
               sequence={[
-                'Professional Success',
+                "Professional Success",
                 1000,
-                'ATS-friendly CV Building',
+                "ATS-friendly CV Building",
                 1000,
-                'Interview Prepation',
+                "Interview Prepation",
                 1000,
-                'Career Growth',
+                "Career Growth",
                 1000,
               ]}
               speed={50}
-              style={{ fontSize: '1em' }}
+              style={{ fontSize: "1em" }}
               repeat={Infinity}
             />
           </h1>
@@ -56,7 +56,7 @@ const HeroSection = () => {
         </div>
         <div className="flex justify-center space-x-4">
           <Link href="/dashboard">
-            <Button variant="custom" size="lg" className=" px-8">
+            <Button variant="custom" size="lg" className=" px-8 text-black ">
               Get Started
             </Button>
           </Link>
