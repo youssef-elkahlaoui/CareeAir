@@ -6,6 +6,7 @@ import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
 import { join } from "@prisma/client/runtime/library";
+import ChatBot from "@/components/ChatBot";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
@@ -38,6 +39,9 @@ export default function RootLayout({ children }) {
             <Header />
             <main className="min-h-screen">
               {children}
+              <div className=" bottom-4 right-4 z-50">
+        <ChatBot />
+      </div>
               <Analytics />
               <SpeedInsights />
             </main>
