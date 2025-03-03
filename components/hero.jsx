@@ -36,13 +36,13 @@ const HeroSection = () => {
             <TypeAnimation
               sequence={[
                 "Professional Success",
-                1000,
+                2000,
                 "ATS-friendly CV Building",
-                1000,
-                "Interview Prepation",
-                1000,
+                2000,
+                "Interview Preparation",
+                2000,
                 "Career Growth",
-                1000,
+                2000,
               ]}
               speed={50}
               style={{ fontSize: "1em" }}
