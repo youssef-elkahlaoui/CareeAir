@@ -12,6 +12,14 @@ export default function ChatBot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Predefined questions that users can select from
+  const predefinedQuestions = [
+    "How does the Resume Builder work?",
+    "Can I generate a Cover Letter?",
+    "How do I prepare for interviews?",
+    "What industry insights are available?"
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +32,27 @@ export default function ChatBot() {
 
     try {
       const response = await generateChatResponse(input);
+      const botMessage = { role: "assistant", content: response };
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Chat error:", error);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "Sorry, I encountered an error. Please try again." },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
+  // Handle clicking on a predefined question
+  const handleQuestionClick = async (question) => {
+    const userMessage = { role: "user", content: question };
+    setMessages((prev) => [...prev, userMessage]);
+    setIsLoading(true);
+    
+    try {
+      const response = await generateChatResponse(question);
       const botMessage = { role: "assistant", content: response };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
@@ -94,6 +123,25 @@ export default function ChatBot() {
               Send
             </Button>
           </form>
+          
+          {/* Predefined questions section */}
+          <div className="mt-4">
+            <p className="text-sm text-muted-foreground mb-2">Quick questions:</p>
+            <div className="flex flex-wrap gap-2">
+              {predefinedQuestions.map((question, index) => (
+                <Button 
+                  key={index} 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => handleQuestionClick(question)}
+                  disabled={isLoading}
+                  className="text-xs text-left whitespace-normal h-auto py-1"
+                >
+                  {question}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
       </Card>
     </div>
