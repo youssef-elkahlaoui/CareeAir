@@ -4,11 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MessageCircle } from "lucide-react";
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+import { generateChatResponse } from "@/actions/chat";
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([]);
@@ -26,9 +23,8 @@ export default function ChatBot() {
     setIsLoading(true);
 
     try {
-      const result = await model.generateContent(input);
-      const response = result.response;
-      const botMessage = { role: "assistant", content: response.text() };
+      const response = await generateChatResponse(input);
+      const botMessage = { role: "assistant", content: response };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
       console.error("Chat error:", error);
