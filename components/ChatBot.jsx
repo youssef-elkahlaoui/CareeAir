@@ -81,7 +81,7 @@ export default function ChatBot() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <Card className="w-[400px] p-4 shadow-lg relative">
+      <Card className="w-[90vw] max-w-[400px] sm:w-[400px] p-2 sm:p-4 shadow-lg relative">
         <Button
           onClick={() => setIsOpen(false)}
           variant="ghost"
@@ -89,15 +89,15 @@ export default function ChatBot() {
         >
           ×
         </Button>
-        <div className="space-y-4">
-          <div className="h-[400px] overflow-y-auto space-y-4 p-4">
+        <div className="space-y-3 sm:space-y-4">
+          <div className="h-[300px] sm:h-[400px] overflow-y-auto space-y-3 sm:space-y-4 p-2 sm:p-4">
             {messages.map((message, index) => (
               <div
                 key={index}
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[80%] rounded-lg p-3 ${message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"}`}
+                  className={`max-w-[80%] rounded-lg p-2 sm:p-3 text-sm sm:text-base ${message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"}`}
                 >
                   {message.content}
                 </div>
@@ -105,8 +105,8 @@ export default function ChatBot() {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="max-w-[80%] rounded-lg p-3 bg-muted">
-                  <div className="animate-pulse">Thinking...</div>
+                <div className="max-w-[80%] rounded-lg p-2 sm:p-3 bg-muted">
+                  <div className="animate-pulse text-sm sm:text-base">Thinking...</div>
                 </div>
               </div>
             )}
@@ -118,16 +118,17 @@ export default function ChatBot() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message..."
               disabled={isLoading}
+              className="text-sm sm:text-base"
             />
-            <Button type="submit" disabled={isLoading}>
+            <Button type="submit" disabled={isLoading} className="text-sm sm:text-base whitespace-nowrap">
               Send
             </Button>
           </form>
           
           {/* Predefined questions section */}
-          <div className="mt-4">
-            <p className="text-sm text-muted-foreground mb-2">Quick questions:</p>
-            <div className="flex flex-wrap gap-2">
+          <div className="mt-2 sm:mt-4">
+            <p className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-2">Quick questions:</p>
+            <div className="flex flex-wrap gap-1 sm:gap-2">
               {predefinedQuestions.map((question, index) => (
                 <Button 
                   key={index} 
@@ -135,7 +136,7 @@ export default function ChatBot() {
                   size="sm" 
                   onClick={() => handleQuestionClick(question)}
                   disabled={isLoading}
-                  className="text-xs text-left whitespace-normal h-auto py-1"
+                  className="text-xs text-left whitespace-normal h-auto py-1 px-2"
                 >
                   {question}
                 </Button>
