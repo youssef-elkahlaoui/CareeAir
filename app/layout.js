@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <p>
+                  <p className="text-black dark:text-white">
                     <Link2 className="inline" /> &nbsp; By Youssef
                     El kahlaoui
                   </p>

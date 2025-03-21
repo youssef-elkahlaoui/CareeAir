@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import { checkUser } from "@/lib/checkUser";
+import { ThemeToggle } from "./theme-toggle";
 
 export default async function Header() {
   await checkUser();
@@ -31,12 +32,14 @@ export default async function Header() {
             alt="CareeAIr Logo"
             width={200}
             height={180}
-            className="h-12 w-auto object-contain"
+            className="h-12 w-auto object-contain invert dark:invert-0"
           />
         </Link>
 
         {/* Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
+          <ThemeToggle />
+          
           <SignedIn>
             <Link href="/dashboard">
               <Button
@@ -56,11 +59,11 @@ export default async function Header() {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="custom"
-                  className="border-black flex items-center gap-2"
+                  className="flex items-center gap-2"
                 >
-                  <StarsIcon className="h-4 w-4 text-black" />
-                  <span className="text-black hidden md:block "> Tools</span>
-                  <ChevronDown className="h-4 w-4 text-black" />
+                  <StarsIcon className="h-4 w-4" />
+                  <span className="hidden md:block"> Tools</span>
+                  <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">

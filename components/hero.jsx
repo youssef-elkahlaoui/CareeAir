@@ -30,7 +30,7 @@ const HeroSection = () => {
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">
         <div className="space-y-6 mx-auto">
-          <h1 className="text-6xl text-bold tracking-tighter md:text-6xl lg:text-7xl xl:text-8xl animate-gradient gradient-title font-display">
+          <h1 className="text-6xl text-bold tracking-tighter md:text-6xl lg:text-7xl xl:text-8xl animate-gradient gradient-title font-display text-black dark:text-white">
             Your AI Powered Tool for
             <br />
             <TypeAnimation
@@ -56,7 +56,7 @@ const HeroSection = () => {
         </div>
         <div className="flex justify-center space-x-4">
           <Link href="/dashboard">
-            <Button variant="custom" size="lg" className=" px-8 text-black ">
+            <Button variant="custom" size="lg" className="px-8 text-white dark:text-black">
               Get Started
             </Button>
           </Link>
