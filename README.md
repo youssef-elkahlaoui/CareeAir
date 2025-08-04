@@ -13,6 +13,7 @@ I'm excited to share my latest project: **CareeAir** - an innovative AI-powered 
 - **Deployment**: Vercel with Analytics & Speed Insights
 - **Background Jobs**: Inngest
 
+
 ## ✨ Key Features
 - **AI-Powered Chatbot** for instant career advice and guidance
 - **AI Resume Builder** with ATS optimization and industry-specific feedback
